@@ -1,0 +1,18 @@
+let ajax = (url) => { //déclaration de la fonction
+  let req = new XMLHttpRequest(); // Instanciation de l'objet XHR
+  req.open('GET', url, true); // Paramètrage de l'objet via méthode open()
+  req.onreadystatechange = (aEvt) => { // Ecoute évenement sur l'objet
+    if (req.readyState == 4) { // Statu 4 de l'évenement = données recues
+      if (req.status == 200) { // Statu 200 HTTP = tout est OK
+        console.log('ok, données reçues !');
+        console.log(req.response);
+      } else {
+        console.error('il y a eu un problème.');
+      }
+    }
+  }
+  req.send(null) // Envoi de la requète
+}
+ajax('https://jsonplaceholder.typicode.com/todos') // appel de la fonction
+
+console.log('mljmljlm');
